@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HairSalon.Models;
+@model List<HairSalon.Models.Client>;
+
+<h1>Current Clients</h1>
+
+@if(Model.Count == 0)
+{
+    <p>There were no clients found in the registry.</p>
+    
+}
+else
+{
+    <ul>
+    @foreach(Client client in Model)
+    {
+        <li>@Html.ActionLink($"{client.Name}", "Details", new { id = client.ClientId }) | @client.Stylist.Name</li>
+    }
+    </ul>
+}
+<p>Add a new client @Html.ActionLink("here", "Create").</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
