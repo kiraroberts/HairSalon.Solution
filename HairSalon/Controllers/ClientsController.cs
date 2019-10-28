@@ -57,7 +57,7 @@ namespace HairSalon.Controllers
 
         public ActionResult Delete(int id)
         {
-            Animal thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+            Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
             return View(thisClient);
         }
 
